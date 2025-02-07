@@ -32,6 +32,8 @@ public class WpfHostingService : BackgroundService
 
     private readonly IHostApplicationLifetime hostApplicationLifetime;
 
+    private readonly TaskCompletionSource tcs = new();
+
     public WpfHostingService(IServiceProvider serviceProvider, IHostApplicationLifetime hostApplicationLifetime)
     {
         this.serviceProvider = serviceProvider;
@@ -43,17 +45,13 @@ public class WpfHostingService : BackgroundService
         var thread = new Thread(() =>
         {
             var app = serviceProvider.GetRequiredService<App>();
-            app.Exit += AppOnExit;
             app.Run();
+            tcs.SetResult();
+            hostApplicationLifetime.StopApplication();
         });
         thread.SetApartmentState(ApartmentState.STA);
         thread.Start();
-        return Task.CompletedTask;
-    }
-
-    private void AppOnExit(object sender, ExitEventArgs e)
-    {
-        hostApplicationLifetime.StopApplication();
+        return tcs.Task;
     }
 }
 
