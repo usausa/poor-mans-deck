@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGrpcClient", "CodeGrpcC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGrpcContract", "CodeGrpcContract\CodeGrpcContract.csproj", "{11E2E1AD-3D1F-42C6-BE2D-7F16A7501799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFluent", "WpfFluent\WpfFluent.csproj", "{66305571-C5AD-4561-BE6B-5325A8AB34DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{11E2E1AD-3D1F-42C6-BE2D-7F16A7501799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E2E1AD-3D1F-42C6-BE2D-7F16A7501799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E2E1AD-3D1F-42C6-BE2D-7F16A7501799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66305571-C5AD-4561-BE6B-5325A8AB34DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66305571-C5AD-4561-BE6B-5325A8AB34DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66305571-C5AD-4561-BE6B-5325A8AB34DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66305571-C5AD-4561-BE6B-5325A8AB34DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
