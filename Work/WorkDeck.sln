@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFluent", "WpfFluent\WpfF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrayApp", "TrayApp\TrayApp.csproj", "{0519DE08-3C5A-4405-9792-F88870DAE75E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckUI", "DeckUI\DeckUI.csproj", "{D90C22D5-79CE-4208-47F9-872422CA48C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,11 @@ Global
 		{0519DE08-3C5A-4405-9792-F88870DAE75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0519DE08-3C5A-4405-9792-F88870DAE75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0519DE08-3C5A-4405-9792-F88870DAE75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90C22D5-79CE-4208-47F9-872422CA48C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90C22D5-79CE-4208-47F9-872422CA48C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90C22D5-79CE-4208-47F9-872422CA48C8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D90C22D5-79CE-4208-47F9-872422CA48C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90C22D5-79CE-4208-47F9-872422CA48C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
