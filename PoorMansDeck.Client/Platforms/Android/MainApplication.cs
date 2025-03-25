@@ -1,4 +1,6 @@
-﻿namespace PoorMansDeck.Client;
+// ReSharper disable CheckNamespace
+namespace PoorMansDeck.Client;
+
 using Android.App;
 using Android.Runtime;
 
