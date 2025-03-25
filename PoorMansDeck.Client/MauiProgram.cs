@@ -1,6 +1,8 @@
 namespace PoorMansDeck.Client;
 
+#if DEBUG
 using Microsoft.Extensions.Logging;
+#endif
 
 public static class MauiProgram
 {
