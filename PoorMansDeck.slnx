@@ -11,5 +11,6 @@
     <File Path="PoorMansDeck.sln.sln.DotSettings" />
     <File Path="Settings.XamlStyler" />
   </Folder>
+  <Project Path="PoorMansDeck.Client/PoorMansDeck.Client.csproj" Id="ca6a8e3e-2086-4113-8907-6ac4eefa0a03" />
   <Project Path="PoorMansDeck.Server/PoorMansDeck.Server.csproj" Id="d2c91c17-d181-42f7-a3d9-535b953c3fe3" />
 </Solution>
