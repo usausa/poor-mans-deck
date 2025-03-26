@@ -7,5 +7,15 @@
         Title="MainWindow"
         Width="800" Height="450"
         Closing="Window_Closing">
-    <Grid />
+    <Grid>
+        <Button Margin="10,10,0,0"
+                Content="Button" VerticalAlignment="Top" />
+        <CheckBox Margin="10,44,0,0"
+                  Content="CheckBox" VerticalAlignment="Top" />
+        <ComboBox Width="120"
+                  Margin="10,81,0,0"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Margin="10,120,0,0"
+               Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" />
+    </Grid>
 </Window>
