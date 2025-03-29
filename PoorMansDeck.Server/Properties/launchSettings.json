@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PoorMansDeck.Server": {
+      "commandName": "Project",
+      "commandLineArgs": ""
+    }
+  }
+}

@@ -43,8 +43,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.70.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PoorMansDeck.Contract\PoorMansDeck.Contract.csproj" />
 	</ItemGroup>
 
 </Project>

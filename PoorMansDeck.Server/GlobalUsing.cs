@@ -14,9 +14,9 @@ global using System.IO;
 global using System.Linq;
 global using System.Net;
 global using System.Net.Http;
-//global using System.Reactive.Disposables;
-//global using System.Reactive.Linq;
-//global using System.Reactive.Subjects;
+global using System.Reactive.Disposables;
+global using System.Reactive.Linq;
+global using System.Reactive.Subjects;
 global using System.Runtime;
 global using System.Runtime.CompilerServices;
 global using System.Text;
@@ -27,17 +27,11 @@ global using System.Windows.Data;
 global using System.Windows.Input;
 global using System.Windows.Media;
 
-//global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Logging;
 
-//global using Smart;
-//global using Smart.Collections.Generic;
-//global using Smart.ComponentModel;
-//global using Smart.Navigation;
-//global using Smart.Navigation.Attributes;
-//global using Smart.Navigation.Plugins.Parameter;
-//global using Smart.Navigation.Plugins.Scope;
-//global using Smart.Text;
-//global using Smart.Windows.Messaging;
-//global using Smart.Windows.ViewModels;
-
-//global using Template.WindowsApp.Helpers;
+global using Smart;
+global using Smart.Collections.Generic;
+global using Smart.ComponentModel;
+global using Smart.Text;
+global using Smart.Windows.Messaging;
+global using Smart.Windows.ViewModels;
