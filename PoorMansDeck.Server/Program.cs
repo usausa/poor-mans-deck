@@ -14,8 +14,8 @@ builder.ConfigureSystemDefaults();
 // Logging
 builder.ConfigureLoggingDefaults();
 
-// gRPC
-builder.ConfigureGrpcService();
+// API
+builder.ConfigureApi();
 
 // Components
 builder.ConfigureComponents();
@@ -26,8 +26,8 @@ builder.ConfigureComponents();
 
 var app = builder.Build();
 
-// gRPC
-app.MapGrpcService();
+// API
+app.MapApi();
 
 // Startup information
 app.LogStartupInformation();

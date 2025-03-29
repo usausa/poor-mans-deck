@@ -3,14 +3,12 @@ namespace PoorMansDeck.Server;
 using System.Runtime.InteropServices;
 
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using ProtoBuf.Grpc.Server;
+using PoorMansDeck.Server.Hubs;
 
-using PoorMansDeck.Contract;
-using PoorMansDeck.Server.Services;
+using Scalar.AspNetCore;
 
 using Serilog;
 
@@ -49,20 +47,36 @@ public static class ApplicationExtensions
     }
 
     //--------------------------------------------------------------------------------
-    // gRPC
+    // API
     //--------------------------------------------------------------------------------
 
-    public static WebApplicationBuilder ConfigureGrpcService(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder ConfigureApi(this WebApplicationBuilder builder)
     {
-        builder.Services.AddCodeFirstGrpc();
-        builder.Services.AddSingleton<IHelloService, HelloService>();
+        builder.Services.AddControllers();
+        builder.Services.AddOpenApi();
+        builder.Services.AddSignalR();
 
         return builder;
     }
 
-    public static void MapGrpcService(this IEndpointRouteBuilder builder)
+    public static void MapApi(this WebApplication app)
     {
-        builder.MapGrpcService<IHelloService>();
+        if (app.Environment.IsDevelopment())
+        {
+            app.MapOpenApi();
+            app.MapScalarApiReference();
+        }
+
+        app.UseAuthorization();
+
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.MapControllers();
+        // TODO
+        app.MapHub<ChatHub>("/chat");
+        app.MapGet("/", () => "Poor man's deck");
     }
 
     //--------------------------------------------------------------------------------
