@@ -1,21 +1,20 @@
 namespace PoorMansDeck.Server;
 
 using System.Runtime.InteropServices;
-using System.Text.Encodings.Web;
-using System.Text.Json.Serialization;
-using System.Text.Unicode;
 
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using ProtoBuf.Grpc.Server;
+
+using PoorMansDeck.Contract;
 using PoorMansDeck.Server.Services;
 
 using Serilog;
 
+using Smart.Windows.Hosting;
 using Smart.Windows.Resolver;
 
 public static class ApplicationExtensions
@@ -55,19 +54,15 @@ public static class ApplicationExtensions
 
     public static WebApplicationBuilder ConfigureGrpcService(this WebApplicationBuilder builder)
     {
-        // TODO port ? / setting ?
-        builder.WebHost.ConfigureKestrel((_, serverOptions) =>
-        {
-            serverOptions.ListenAnyIP(5000, listenOptions =>
-            {
-                // listenOptions.UseHttps("certificate.pfx", "password");
-                listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
-            });
-        });
-
-        builder.Services.AddGrpc();
+        builder.Services.AddCodeFirstGrpc();
+        builder.Services.AddSingleton<IHelloService, HelloService>();
 
         return builder;
+    }
+
+    public static void MapGrpcService(this IEndpointRouteBuilder builder)
+    {
+        builder.MapGrpcService<IHelloService>();
     }
 
     //--------------------------------------------------------------------------------
@@ -76,19 +71,10 @@ public static class ApplicationExtensions
 
     public static WebApplicationBuilder ConfigureComponents(this WebApplicationBuilder builder)
     {
-        //builder.ConfigureContainer(new SmartServiceProviderFactory(), x => ConfigureContainer(builder.Configuration, x));
-
-        //RestConfig.Default.UseJsonSerializer(static config =>
-        //{
-        //    config.Converters.Add(new Template.WindowsApp.Helpers.DateTimeConverter());
-        //    config.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
-        //    config.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-        //});
-
         // TODO plugins & configure plugins ?
 
         builder.Services.AddSingleton<MainWindow>();
-        builder.Services.AddSingleton<App>();
+        builder.Services.AddWpf<App>();
 
         return builder;
     }
@@ -96,10 +82,6 @@ public static class ApplicationExtensions
     //--------------------------------------------------------------------------------
     // Startup
     //--------------------------------------------------------------------------------
-    public static void MapGrpcService(this IEndpointRouteBuilder builder)
-    {
-        builder.MapGrpcService<HelloService>();
-    }
 
     public static void LogStartupInformation(this IHost app)
     {
@@ -119,6 +101,6 @@ public static class ApplicationExtensions
     {
         ResolveProvider.Default.Provider = app.Services;
 
-        app.Services.GetRequiredService<App>().Run();
+        app.Run();
     }
 }
