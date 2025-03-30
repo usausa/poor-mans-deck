@@ -3,6 +3,7 @@ namespace PoorMansDeck.Server.Handlers.Media;
 using NAudio.CoreAudioApi;
 
 // TODO
+// ReSharper disable MemberCanBeMadeStatic.Global
 #pragma warning disable CA1822
 public sealed class MediaHandler
 {
@@ -39,5 +40,20 @@ public sealed class MediaHandler
         {
             device.AudioEndpointVolume.Mute = false;
         }
+    }
+
+    public void PlayPause()
+    {
+        NativeMethods.PlayPause();
+    }
+
+    public void Prev()
+    {
+        NativeMethods.Prev();
+    }
+
+    public void Next()
+    {
+        NativeMethods.Next();
     }
 }

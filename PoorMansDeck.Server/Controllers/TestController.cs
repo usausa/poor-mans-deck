@@ -14,7 +14,7 @@ public class TestExecuteRequest
 public class TestController : ControllerBase
 {
     [HttpPost]
-    public IActionResult Execute([FromBody] TestExecuteRequest request)
+    public async ValueTask<IActionResult> Execute([FromBody] TestExecuteRequest request)
     {
         var handler = new MediaHandler();
         // ReSharper disable StringLiteralTypo
@@ -31,6 +31,19 @@ public class TestController : ControllerBase
                 break;
             case "Unmute":
                 handler.Unmute();
+                break;
+            // Key
+            case "PlayPause":
+                await Task.Delay(5000).ConfigureAwait(false);
+                handler.PlayPause();
+                break;
+            case "Prev":
+                await Task.Delay(5000).ConfigureAwait(false);
+                handler.Prev();
+                break;
+            case "Next":
+                await Task.Delay(5000).ConfigureAwait(false);
+                handler.Next();
                 break;
             default:
                 return BadRequest();
