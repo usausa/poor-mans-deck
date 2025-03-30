@@ -1,5 +1,9 @@
 namespace PoorMansDeck.Server;
 
+using System.Diagnostics;
+
+using Microsoft.Win32;
+
 public sealed partial class App : IDisposable
 {
     private readonly ILogger<App> log;
@@ -13,6 +17,8 @@ public sealed partial class App : IDisposable
         Current.DispatcherUnhandledException += (_, ea) => HandleException(ea.Exception);
         AppDomain.CurrentDomain.UnhandledException += (_, ea) => HandleException((Exception)ea.ExceptionObject);
 
+        SystemEvents.SessionSwitch += SystemEventsOnSessionSwitch;
+
         InitializeComponent();
     }
 
@@ -21,6 +27,20 @@ public sealed partial class App : IDisposable
         log.ErrorUnknownException(ex);
 
         System.Windows.MessageBox.Show(ex.ToString(), "Unknown error.", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+
+    private static void SystemEventsOnSessionSwitch(object sender, SessionSwitchEventArgs e)
+    {
+        // TODO
+        switch (e.Reason)
+        {
+            case SessionSwitchReason.SessionLock:
+                Debug.WriteLine("* Session is locked.");
+                break;
+            case SessionSwitchReason.SessionUnlock:
+                Debug.WriteLine("* Session is unlocked.");
+                break;
+        }
     }
 
     protected override void OnStartup(StartupEventArgs e)
