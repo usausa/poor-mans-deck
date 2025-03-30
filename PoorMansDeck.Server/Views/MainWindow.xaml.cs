@@ -1,4 +1,4 @@
-namespace PoorMansDeck.Server;
+namespace PoorMansDeck.Server.Views;
 
 public partial class MainWindow
 {
@@ -8,7 +8,7 @@ public partial class MainWindow
     }
 
     // TODO
-    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    private void Window_Closing(object sender, CancelEventArgs e)
     {
         e.Cancel = true;
         Hide();

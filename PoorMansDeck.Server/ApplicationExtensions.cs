@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using PoorMansDeck.Server.Hubs;
+using PoorMansDeck.Server.Views;
 
 using Scalar.AspNetCore;
 

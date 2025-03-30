@@ -4,6 +4,8 @@ using System.Diagnostics;
 
 using Microsoft.Win32;
 
+using PoorMansDeck.Server.Views;
+
 public sealed partial class App : IDisposable
 {
     private readonly ILogger<App> log;
