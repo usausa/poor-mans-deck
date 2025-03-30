@@ -12,6 +12,8 @@
     <File Path="Settings.XamlStyler" />
   </Folder>
   <Project Path="PoorMansDeck.Api/PoorMansDeck.Api.csproj" />
-  <Project Path="PoorMansDeck.Client/PoorMansDeck.Client.csproj" />
+  <Project Path="PoorMansDeck.Client/PoorMansDeck.Client.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
   <Project Path="PoorMansDeck.Server/PoorMansDeck.Server.csproj" />
 </Solution>

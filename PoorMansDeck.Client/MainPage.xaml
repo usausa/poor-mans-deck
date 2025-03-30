@@ -49,8 +49,8 @@
                             TextColor="{Binding TextColor}"
                             Text="{Binding Text}">
                         <Button.Background>
-                            <LinearGradientBrush>
-                                <GradientStop Offset="0.1" Color="{Binding BackColor1}" />
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Offset="0.0" Color="{Binding BackColor1}" />
                                 <GradientStop Offset="1.0" Color="{Binding BackColor2}" />
                             </LinearGradientBrush>
                         </Button.Background>
@@ -68,8 +68,8 @@
                     <ImageButton StyleClass="DeckButton"
                                  Source="{Binding Image}">
                         <ImageButton.Background>
-                            <LinearGradientBrush>
-                                <GradientStop Offset="0.1" Color="{Binding BackColor1}" />
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Offset="0.0" Color="{Binding BackColor1}" />
                                 <GradientStop Offset="1.0" Color="{Binding BackColor2}" />
                             </LinearGradientBrush>
                         </ImageButton.Background>

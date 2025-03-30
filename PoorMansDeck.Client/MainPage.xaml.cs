@@ -3,7 +3,7 @@ namespace PoorMansDeck.Client;
 public partial class MainPage
 {
     // TODO reverse ?
-    private static readonly (string Color1, string Color2)[] Colors =
+    private static readonly (string Color2, string Color1)[] Colors =
     [
         new("#F44336", "#FF8A80"),
         new("#E91E63", "#FF80AB"),
@@ -65,8 +65,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Folder1",
             Image = "folder.svg",
-            BackColor1 = Color.FromArgb("#ffb347"),
-            BackColor2 = Color.FromArgb("#ffcc33")
+            BackColor1 = Color.FromArgb("#ffcc33"),
+            BackColor2 = Color.FromArgb("#ffb347")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -75,8 +75,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Folder2",
             Image = "folder.svg",
-            BackColor1 = Color.FromArgb("#ffb347"),
-            BackColor2 = Color.FromArgb("#ffcc33")
+            BackColor1 = Color.FromArgb("#ffcc33"),
+            BackColor2 = Color.FromArgb("#ffb347")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -106,8 +106,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "00:30",
             Image = "timer.svg",
-            BackColor1 = Color.FromArgb("#1fa2ff"),
-            BackColor2 = Color.FromArgb("#12d8fa")
+            BackColor1 = Color.FromArgb("#12d8fa"),
+            BackColor2 = Color.FromArgb("#1fa2ff")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -116,8 +116,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Lock",
             Image = "lock.svg",
-            BackColor1 = Color.FromArgb("#a770ef"),
-            BackColor2 = Color.FromArgb("#cf8bf3")
+            BackColor1 = Color.FromArgb("#cf8bf3"),
+            BackColor2 = Color.FromArgb("#a770ef")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -126,8 +126,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Settings",
             Image = "settings.svg",
-            BackColor1 = Color.FromArgb("#0cebeb"),
-            BackColor2 = Color.FromArgb("#20e3b2")
+            BackColor1 = Color.FromArgb("#20e3b2"),
+            BackColor2 = Color.FromArgb("#0cebeb")
         });
 
         // Row4
@@ -138,8 +138,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Volume up",
             Image = "volume_off.svg",
-            BackColor1 = Color.FromArgb("#f46b45"),
-            BackColor2 = Color.FromArgb("#eea849")
+            BackColor1 = Color.FromArgb("#eea849"),
+            BackColor2 = Color.FromArgb("#f46b45")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -148,8 +148,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Mute",
             Image = "volume_up.svg",
-            BackColor1 = Color.FromArgb("#f46b45"),
-            BackColor2 = Color.FromArgb("#eea849")
+            BackColor1 = Color.FromArgb("#eea849"),
+            BackColor2 = Color.FromArgb("#f46b45")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -158,8 +158,8 @@ public partial class MainPage
             ButtonType = ButtonType.Image,
             Label = "Volume down",
             Image = "volume_down.svg",
-            BackColor1 = Color.FromArgb("#f46b45"),
-            BackColor2 = Color.FromArgb("#eea849")
+            BackColor1 = Color.FromArgb("#eea849"),
+            BackColor2 = Color.FromArgb("#f46b45")
         });
 
         model.Buttons.Add(new ButtonModel
@@ -169,8 +169,8 @@ public partial class MainPage
             ButtonType = ButtonType.Text,
             Label = "CPU",
             Text = String.Join(Environment.NewLine, "CPU", "13%"),
-            BackColor1 = Color.FromArgb("#616161"),
-            BackColor2 = Color.FromArgb("#424242")
+            BackColor1 = Color.FromArgb("#424242"),
+            BackColor2 = Color.FromArgb("#616161")
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -179,8 +179,8 @@ public partial class MainPage
             ButtonType = ButtonType.Text,
             Label = "Memory",
             Text = String.Join(Environment.NewLine, "MEM", "74%"),
-            BackColor1 = Color.FromArgb("#616161"),
-            BackColor2 = Color.FromArgb("#424242")
+            BackColor1 = Color.FromArgb("#424242"),
+            BackColor2 = Color.FromArgb("#616161")
         });
 
         BindingContext = model;
