@@ -70,7 +70,8 @@ public static class ApplicationExtensions
 
         app.UseAuthorization();
 
-        app.UseStaticFiles();
+        // TODO Image?
+        //app.UseStaticFiles();
 
         app.UseRouting();
 
