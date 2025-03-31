@@ -12,19 +12,19 @@ using PoorMansDeck.Server.Hubs;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-public class ChatController : ControllerBase
+public class DeckController : ControllerBase
 {
-    private readonly IHubContext<ChatHub> messageHubContext;
+    private readonly IHubContext<DeckHub> hubContext;
 
-    public ChatController(IHubContext<ChatHub> messageHubContext)
+    public DeckController(IHubContext<DeckHub> hubContext)
     {
-        this.messageHubContext = messageHubContext;
+        this.hubContext = hubContext;
     }
 
     [HttpPost]
     public async Task<IActionResult> Send([FromBody] ChatSendRequest request)
     {
-        await messageHubContext.Clients.All.SendAsync("ReceiveMessage", new ChatMessage { Text = request.Text, Timestamp = DateTime.Now }).ConfigureAwait(false);
+        await hubContext.Clients.All.SendAsync("ReceiveMessage", new ChatMessage { Text = request.Text, Timestamp = DateTime.Now }).ConfigureAwait(false);
         return Ok();
     }
 }

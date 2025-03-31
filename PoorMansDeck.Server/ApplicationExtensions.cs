@@ -75,8 +75,7 @@ public static class ApplicationExtensions
         app.UseRouting();
 
         app.MapControllers();
-        // TODO
-        app.MapHub<ChatHub>("/chat");
+        app.MapHub<DeckHub>("/deck");
         app.MapGet("/", () => "Poor man's deck");
     }
 

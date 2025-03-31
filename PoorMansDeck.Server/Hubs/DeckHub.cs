@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 
 using PoorMansDeck.Event;
 
-public class ChatHub : Hub
+public class DeckHub : Hub
 {
     public Task AddMessage(string text)
     {
