@@ -57,6 +57,11 @@ public static class ApplicationExtensions
         builder.Services.AddOpenApi();
         builder.Services.AddSignalR();
 
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddOpenApi();
+        }
+
         return builder;
     }
 
