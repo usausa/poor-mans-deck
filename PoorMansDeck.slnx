@@ -1,4 +1,19 @@
 <Solution>
+  <Folder Name="/Api/">
+    <Project Path="PoorMansDeck.Api/PoorMansDeck.Api.csproj" />
+  </Folder>
+  <Folder Name="/Client/">
+    <Project Path="PoorMansDeck.Client/PoorMansDeck.Client.csproj">
+      <Deploy Solution="Debug|*" />
+    </Project>
+  </Folder>
+  <Folder Name="/Server/">
+    <Project Path="PoorMansDeck.Server.Plugin.Abstraction/PoorMansDeck.Server.Plugin.Abstraction.csproj" />
+    <Project Path="PoorMansDeck.Server.Plugin.Media/PoorMansDeck.Server.Plugin.Media.csproj" />
+    <Project Path="PoorMansDeck.Server/PoorMansDeck.Server.csproj">
+      <BuildDependency Project="PoorMansDeck.Server.Plugin.Media/PoorMansDeck.Server.Plugin.Media.csproj" />
+    </Project>
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
@@ -8,12 +23,7 @@
     <File Path="Directory.Build.targets" />
     <File Path="LICENSE" />
     <File Path="README.md" />
-    <File Path="PoorMansDeck.sln.sln.DotSettings" />
+    <File Path="PoorMansDeck.sln.DotSettings" />
     <File Path="Settings.XamlStyler" />
   </Folder>
-  <Project Path="PoorMansDeck.Api/PoorMansDeck.Api.csproj" />
-  <Project Path="PoorMansDeck.Client/PoorMansDeck.Client.csproj">
-    <Deploy Solution="Debug|*" />
-  </Project>
-  <Project Path="PoorMansDeck.Server/PoorMansDeck.Server.csproj" />
 </Solution>

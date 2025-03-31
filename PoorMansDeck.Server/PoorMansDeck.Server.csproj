@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PoorMansDeck.Api\PoorMansDeck.Api.csproj" />
+    <ProjectReference Include="..\PoorMansDeck.Server.Plugin.Abstraction\PoorMansDeck.Server.Plugin.Abstraction.csproj" />
   </ItemGroup>
 
   <ItemGroup>

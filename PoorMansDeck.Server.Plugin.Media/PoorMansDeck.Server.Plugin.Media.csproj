@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PoorMansDeck.Server.Plugin.Abstraction\PoorMansDeck.Server.Plugin.Abstraction.csproj" />
+  </ItemGroup>
+
+</Project>
