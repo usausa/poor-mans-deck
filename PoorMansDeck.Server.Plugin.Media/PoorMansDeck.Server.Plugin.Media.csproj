@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <BaseOutputPath>..\PoorMansDeck.Server\bin</BaseOutputPath>
+    <RootNamespace>PoorMansDeck.Server.Plugin</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

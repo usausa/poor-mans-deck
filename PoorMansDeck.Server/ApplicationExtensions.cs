@@ -3,10 +3,12 @@ namespace PoorMansDeck.Server;
 using System.Runtime.InteropServices;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using PoorMansDeck.Server.Hubs;
+using PoorMansDeck.Server.Plugin;
 using PoorMansDeck.Server.Views;
 
 using Scalar.AspNetCore;
@@ -95,6 +97,13 @@ public static class ApplicationExtensions
 
         builder.Services.AddSingleton<MainWindow>();
         builder.Services.AddWpf<App>();
+
+        // Plugins
+        var pluginLoader = new PluginLoader(
+            builder.Configuration.GetSection("Plugins").Get<string[]>()!
+                .Select(static x => Path.Combine(AppContext.BaseDirectory, x))
+                .ToArray());
+        pluginLoader.LoadPlugins(builder.Services);
 
         return builder;
     }
