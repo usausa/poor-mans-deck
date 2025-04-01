@@ -9,10 +9,13 @@ using PoorMansDeck.Server;
 var builder = WebApplication.CreateBuilder(args);
 
 // System
-builder.ConfigureSystemDefaults();
+builder.ConfigureSystem();
 
 // Logging
-builder.ConfigureLoggingDefaults();
+builder.ConfigureLogging();
+
+// Security
+builder.ConfigureSecurity();
 
 // API
 builder.ConfigureApi();

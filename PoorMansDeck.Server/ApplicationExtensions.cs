@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 using PoorMansDeck.Server.Hubs;
 using PoorMansDeck.Server.Plugin;
+using PoorMansDeck.Server.Security;
 using PoorMansDeck.Server.Views;
 
 using Scalar.AspNetCore;
@@ -24,7 +26,7 @@ public static class ApplicationExtensions
     // System
     //--------------------------------------------------------------------------------
 
-    public static WebApplicationBuilder ConfigureSystemDefaults(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder ConfigureSystem(this WebApplicationBuilder builder)
     {
         Thread.CurrentThread.SetApartmentState(ApartmentState.Unknown);
         Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
@@ -38,13 +40,39 @@ public static class ApplicationExtensions
     // Logging
     //--------------------------------------------------------------------------------
 
-    public static WebApplicationBuilder ConfigureLoggingDefaults(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder ConfigureLogging(this WebApplicationBuilder builder)
     {
         builder.Logging.ClearProviders();
         builder.Services.AddSerilog(options =>
         {
             options.ReadFrom.Configuration(builder.Configuration);
         });
+
+        return builder;
+    }
+
+    //--------------------------------------------------------------------------------
+    // Security
+    //--------------------------------------------------------------------------------
+
+    public static WebApplicationBuilder ConfigureSecurity(this WebApplicationBuilder builder)
+    {
+        // TODO
+        builder.Services
+            .AddAuthentication()
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = AuthenticationSettings.Issuer,
+                    ValidAudience = AuthenticationSettings.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthenticationSettings.SecretKey))
+                };
+            });
 
         return builder;
     }
@@ -75,6 +103,7 @@ public static class ApplicationExtensions
             app.MapScalarApiReference();
         }
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         // TODO Image?

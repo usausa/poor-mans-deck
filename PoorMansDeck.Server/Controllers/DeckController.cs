@@ -3,6 +3,7 @@ namespace PoorMansDeck.Server.Controllers;
 using System;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 
@@ -26,5 +27,12 @@ public class DeckController : ControllerBase
     {
         await hubContext.Clients.All.SendAsync("ReceiveMessage", new ChatMessage { Text = request.Text, Timestamp = DateTime.Now }).ConfigureAwait(false);
         return Ok();
+    }
+
+    [HttpGet]
+    [Authorize]
+    public IActionResult Page()
+    {
+        return Ok("TODO implement");
     }
 }

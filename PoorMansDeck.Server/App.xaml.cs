@@ -49,6 +49,8 @@ public sealed partial class App : IDisposable
     {
         // TODO
         var menu = new System.Windows.Forms.ContextMenuStrip();
+        menu.Items.Add("Token", null, OnTokenClick);
+        menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add("Exit", null, OnExitClick);
         notifyIcon.Icon = new Icon("App.ico");
         notifyIcon.Text = "Test";
@@ -67,6 +69,13 @@ public sealed partial class App : IDisposable
     private void NotifyIconOnMouseDoubleClick(object? sender, System.Windows.Forms.MouseEventArgs e)
     {
         MainWindow?.Show();
+    }
+
+    private static void OnTokenClick(object? sender, EventArgs e)
+    {
+        // TODO exclusive, single instance
+        var window = new TokenWindow();
+        window.Show();
     }
 
     private void OnExitClick(object? sender, EventArgs e)
