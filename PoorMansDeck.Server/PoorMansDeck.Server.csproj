@@ -33,12 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="sample.pfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PoorMansDeck.Api\PoorMansDeck.Api.csproj" />
     <ProjectReference Include="..\PoorMansDeck.Server.Plugin.Abstraction\PoorMansDeck.Server.Plugin.Abstraction.csproj" />
   </ItemGroup>
@@ -49,6 +43,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="9.0.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
     <PackageReference Include="Scalar.AspNetCore" Version="1.2.76" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />
@@ -71,7 +66,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <None Update="sample.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Images\**\*.*">
+      <Link>Images\%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
