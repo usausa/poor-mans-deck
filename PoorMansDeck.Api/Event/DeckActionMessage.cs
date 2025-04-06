@@ -1,6 +1,12 @@
 namespace PoorMansDeck.Event;
 
-public class DeckActionMessage
+public sealed class DeckActionMessage
 {
-    // TODO
+    public string Command { get; set; } = default!;
+
+    public int Page { get; set; }
+
+    public int X { get; set; }
+
+    public int Y { get; set; }
 }

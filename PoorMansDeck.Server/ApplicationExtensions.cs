@@ -1,3 +1,5 @@
+using PoorMansDeck.Server.Services;
+
 namespace PoorMansDeck.Server;
 
 using System.Runtime.InteropServices;
@@ -106,9 +108,6 @@ public static class ApplicationExtensions
         app.UseAuthentication();
         app.UseAuthorization();
 
-        // TODO Image?
-        //app.UseStaticFiles();
-
         app.UseRouting();
 
         app.MapControllers();
@@ -122,8 +121,13 @@ public static class ApplicationExtensions
 
     public static WebApplicationBuilder ConfigureComponents(this WebApplicationBuilder builder)
     {
-        // TODO plugins & configure plugins ?
+        // TODO
+        // Services
+        builder.Services.AddSingleton<SecurityService>();
+        builder.Services.AddSingleton<DeckService>();
+        builder.Services.AddSingleton<ImageService>();
 
+        // Window
         builder.Services.AddSingleton<MainWindow>();
         builder.Services.AddWpf<App>();
 

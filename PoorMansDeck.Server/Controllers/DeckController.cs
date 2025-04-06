@@ -35,4 +35,11 @@ public class DeckController : ControllerBase
     {
         return Ok("TODO implement");
     }
+
+    [HttpGet]
+    [Authorize]
+    public IActionResult Image()
+    {
+        return Ok("TODO implement");
+    }
 }

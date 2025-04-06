@@ -1,6 +1,8 @@
 namespace PoorMansDeck.Event;
 
-public class DeckUpdateMessage
+public sealed class DeckUpdateMessage
 {
+    public string Command { get; set; } = default!;
+
     // TODO
 }
