@@ -44,7 +44,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="QRCoder" Version="1.6.0" />
-    <PackageReference Include="Scalar.AspNetCore" Version="1.2.76" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.1.6" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />
     <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />

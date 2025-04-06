@@ -2,7 +2,11 @@ namespace PoorMansDeck.Client;
 
 using System.Diagnostics;
 
+using SkiaSharp;
+
 using Smart.Maui.Input;
+
+using ZXing.SkiaSharp;
 
 public partial class MainPage
 {
@@ -214,6 +218,39 @@ public partial class MainPage
     {
         Debug.WriteLine($"Action: {action}");
 
+        switch (action)
+        {
+            case "deck.setting":
+                await UpdateSetting().ConfigureAwait(true);
+                break;
+        }
+
         await Task.Delay(1000).ConfigureAwait(true);
+    }
+
+    private static async Task UpdateSetting()
+    {
+        if (MediaPicker.Default.IsCaptureSupported)
+        {
+            var result = await MediaPicker.Default.CapturePhotoAsync().ConfigureAwait(false);
+            if (result is not null)
+            {
+                using var ms = new MemoryStream();
+#pragma warning disable CA2007
+                await using var stream = await result.OpenReadAsync().ConfigureAwait(false);
+#pragma warning restore CA2007
+                await stream.CopyToAsync(ms).ConfigureAwait(false);
+                ms.Seek(0, SeekOrigin.Begin);
+
+                var reader = new BarcodeReader();
+                using var bitmap = SKBitmap.Decode(stream);
+                var decode = reader.Decode(new SKBitmapLuminanceSource(bitmap));
+                if (decode is not null)
+                {
+                    Debug.WriteLine($"Text: {decode.Text}");
+                    Debug.WriteLine($"Format: {decode.BarcodeFormat}");
+                }
+            }
+        }
     }
 }
