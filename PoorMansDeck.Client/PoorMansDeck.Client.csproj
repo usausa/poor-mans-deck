@@ -7,8 +7,6 @@
     <SingleProject>true</SingleProject>
 		<RootNamespace>PoorMansDeck.Client</RootNamespace>
     <CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
-    <!-- for ZXing.Net -->
-    <NoWarn>$(NoWarn);XA0141</NoWarn>
 
 		<!-- Display name -->
 		<ApplicationTitle>PoorMansDeck.Client</ApplicationTitle>
@@ -52,7 +50,6 @@
     <PackageReference Include="Usa.Smart.Maui.Reactive" Version="2.1.3" />
     <PackageReference Include="ZXing.Net" Version="0.16.10" />
     <PackageReference Include="ZXing.Net.Bindings.SkiaSharp" Version="0.16.21" />
-    <PackageReference Include="ZXing.Net.Maui" Version="0.4.0" />
   </ItemGroup>
 
 	<ItemGroup>
