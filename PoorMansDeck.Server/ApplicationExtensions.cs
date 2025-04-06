@@ -1,5 +1,3 @@
-using PoorMansDeck.Server.Services;
-
 namespace PoorMansDeck.Server;
 
 using System.Runtime.InteropServices;
@@ -13,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using PoorMansDeck.Server.Hubs;
 using PoorMansDeck.Server.Plugin;
 using PoorMansDeck.Server.Security;
+using PoorMansDeck.Server.Services;
 using PoorMansDeck.Server.Views;
 
 using Scalar.AspNetCore;

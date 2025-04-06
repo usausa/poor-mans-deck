@@ -25,6 +25,10 @@ public class ButtonModel
     public Color BackColor1 { get; set; } = Colors.Black;
 
     public Color BackColor2 { get; set; } = Colors.Black;
+
+    public string Action { get; set; } = default!;
+
+    public ICommand Command { get; set; } = default!;
 }
 
 public class DeckModel

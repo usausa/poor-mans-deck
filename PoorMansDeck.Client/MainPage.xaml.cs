@@ -1,5 +1,9 @@
 namespace PoorMansDeck.Client;
 
+using System.Diagnostics;
+
+using Smart.Maui.Input;
+
 public partial class MainPage
 {
     // TODO reverse ?
@@ -66,7 +70,8 @@ public partial class MainPage
             Label = "Folder1",
             Image = "folder.svg",
             BackColor1 = Color.FromArgb("#ffcc33"),
-            BackColor2 = Color.FromArgb("#ffb347")
+            BackColor2 = Color.FromArgb("#ffb347"),
+            Action = "deck.note"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -76,7 +81,8 @@ public partial class MainPage
             Label = "Folder2",
             Image = "folder.svg",
             BackColor1 = Color.FromArgb("#ffcc33"),
-            BackColor2 = Color.FromArgb("#ffb347")
+            BackColor2 = Color.FromArgb("#ffb347"),
+            Action = "deck.note"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -86,7 +92,8 @@ public partial class MainPage
             Label = "Sound1",
             Image = "music_note.svg",
             BackColor1 = Color.FromArgb("#fc00ff"),
-            BackColor2 = Color.FromArgb("#00dbde")
+            BackColor2 = Color.FromArgb("#00dbde"),
+            Action = "music.play"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -96,7 +103,8 @@ public partial class MainPage
             Label = "Sound2",
             Image = "music_note.svg",
             BackColor1 = Color.FromArgb("#fc00ff"),
-            BackColor2 = Color.FromArgb("#00dbde")
+            BackColor2 = Color.FromArgb("#00dbde"),
+            Action = "music.play"
         });
 
         model.Buttons.Add(new ButtonModel
@@ -107,7 +115,8 @@ public partial class MainPage
             Label = "00:30",
             Image = "timer.svg",
             BackColor1 = Color.FromArgb("#12d8fa"),
-            BackColor2 = Color.FromArgb("#1fa2ff")
+            BackColor2 = Color.FromArgb("#1fa2ff"),
+            Action = "tool.timer"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -117,7 +126,8 @@ public partial class MainPage
             Label = "Lock",
             Image = "lock.svg",
             BackColor1 = Color.FromArgb("#cf8bf3"),
-            BackColor2 = Color.FromArgb("#a770ef")
+            BackColor2 = Color.FromArgb("#a770ef"),
+            Action = "system.lock"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -127,7 +137,8 @@ public partial class MainPage
             Label = "Settings",
             Image = "settings.svg",
             BackColor1 = Color.FromArgb("#20e3b2"),
-            BackColor2 = Color.FromArgb("#0cebeb")
+            BackColor2 = Color.FromArgb("#0cebeb"),
+            Action = "deck.setting"
         });
 
         // Row4
@@ -136,20 +147,22 @@ public partial class MainPage
             Row = 3,
             Column = 0,
             ButtonType = ButtonType.Image,
-            Label = "Volume up",
+            Label = "Mute",
             Image = "volume_off.svg",
             BackColor1 = Color.FromArgb("#eea849"),
-            BackColor2 = Color.FromArgb("#f46b45")
+            BackColor2 = Color.FromArgb("#f46b45"),
+            Action = "volume.mute"
         });
         model.Buttons.Add(new ButtonModel
         {
             Row = 3,
             Column = 1,
             ButtonType = ButtonType.Image,
-            Label = "Mute",
+            Label = "Volume up",
             Image = "volume_up.svg",
             BackColor1 = Color.FromArgb("#eea849"),
-            BackColor2 = Color.FromArgb("#f46b45")
+            BackColor2 = Color.FromArgb("#f46b45"),
+            Action = "volume.up"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -159,7 +172,8 @@ public partial class MainPage
             Label = "Volume down",
             Image = "volume_down.svg",
             BackColor1 = Color.FromArgb("#eea849"),
-            BackColor2 = Color.FromArgb("#f46b45")
+            BackColor2 = Color.FromArgb("#f46b45"),
+            Action = "volume.down"
         });
 
         model.Buttons.Add(new ButtonModel
@@ -170,7 +184,8 @@ public partial class MainPage
             Label = "CPU",
             Text = String.Join(Environment.NewLine, "CPU", "13%"),
             BackColor1 = Color.FromArgb("#424242"),
-            BackColor2 = Color.FromArgb("#616161")
+            BackColor2 = Color.FromArgb("#616161"),
+            Action = "status.cpu"
         });
         model.Buttons.Add(new ButtonModel
         {
@@ -180,9 +195,25 @@ public partial class MainPage
             Label = "Memory",
             Text = String.Join(Environment.NewLine, "MEM", "74%"),
             BackColor1 = Color.FromArgb("#424242"),
-            BackColor2 = Color.FromArgb("#616161")
+            BackColor2 = Color.FromArgb("#616161"),
+            Action = "status.memory"
         });
 
+#pragma warning disable CA2000
+        var command = new AsyncCommand<string>(Test);
+#pragma warning restore CA2000
+        foreach (var button in model.Buttons)
+        {
+            button.Command = command;
+        }
+
         BindingContext = model;
+    }
+
+    private static async Task Test(string action)
+    {
+        Debug.WriteLine($"Action: {action}");
+
+        await Task.Delay(1000).ConfigureAwait(true);
     }
 }
