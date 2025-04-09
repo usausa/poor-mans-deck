@@ -55,7 +55,7 @@ public sealed partial class App
 
     private static WebApplication CreateHost()
     {
-        var builder = WebApplication.CreateBuilder();
+        var builder = WebApplication.CreateBuilder(Environment.GetCommandLineArgs());
 
         // Log
         builder.ConfigureLogging();
