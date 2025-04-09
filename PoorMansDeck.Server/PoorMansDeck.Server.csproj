@@ -5,7 +5,6 @@
     <TargetFramework>net9.0-windows10.0.22000.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <ApplicationIcon>App.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -57,7 +56,6 @@
     <PackageReference Include="Usa.Smart.Core" Version="2.4.1" />
     <PackageReference Include="Usa.Smart.Reactive" Version="2.4.0" />
     <PackageReference Include="Usa.Smart.Windows" Version="2.8.2" />
-    <PackageReference Include="Usa.Smart.Windows.Hosting" Version="2.8.2" />
     <PackageReference Include="Usa.Smart.Windows.Reactive" Version="2.8.2" />
   </ItemGroup>
 
