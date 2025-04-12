@@ -2,21 +2,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:converters="clr-namespace:PoorMansDeck.Server.Converters"
-        xmlns:views="clr-namespace:PoorMansDeck.Server.Views"
+        xmlns:si="clr-namespace:Smart.Windows.Interactivity;assembly=Smart.Windows.Behaviors"
+        xmlns:sr="clr-namespace:Smart.Windows.Resolver;assembly=Smart.Windows"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:views="clr-namespace:PoorMansDeck.Server.Views"
         mc:Ignorable="d"
         x:Class="PoorMansDeck.Server.Views.TokenWindow"
         Title="Token"
+        sr:DataContextResolver.Type="{x:Type views:TokenWindowViewModel}"
         Width="480" Height="480"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        d:DataContext="{d:DesignInstance Type={x:Type views:TokenWindowViewModel}}">
 
-    <Window.Resources>
-        <converters:QrImageConverter x:Key="QrImageConverter" />
-    </Window.Resources>
-
-    <Window.DataContext>
-        <views:TokenWindowViewModel />
-    </Window.DataContext>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <si:WindowCloseToHideAction />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <i:Interaction.Behaviors>
+        <si:DragMoveBehavior />
+    </i:Interaction.Behaviors>
 
     <Grid>
         <Image Source="{Binding Token, Converter={StaticResource QrImageConverter}}" />

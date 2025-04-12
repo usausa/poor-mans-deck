@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Win32;
 
+using PoorMansDeck.Server.Security;
 using PoorMansDeck.Server.Views;
 
 using Smart.Windows.Resolver;
@@ -16,9 +17,9 @@ using Smart.Windows.Resolver;
 public sealed partial class App
 #pragma warning restore CA1001
 {
-    private readonly ILogger<App> log;
-
     private readonly IHost host;
+
+    private readonly ILogger<App> log;
 
     private readonly NotifyIcon notifyIcon = new();
 
@@ -145,10 +146,13 @@ public sealed partial class App
         MainWindow?.Show();
     }
 
-    private static void OnTokenClick(object? sender, EventArgs e)
+    private void OnTokenClick(object? sender, EventArgs e)
     {
-        // TODO exclusive, single instance
-        var window = new TokenWindow();
+        var vm = host.Services.GetRequiredService<TokenWindowViewModel>();
+        // TODO ?
+        vm.Token = TokenHelper.Generate();
+
+        var window = host.Services.GetRequiredService<TokenWindow>();
         window.Show();
     }
 

@@ -109,6 +109,9 @@ public static class ApplicationExtensions
 
         // Window
         builder.Services.AddSingleton<MainWindow>();
+        builder.Services.AddSingleton<MainWindowViewModel>();
+        builder.Services.AddSingleton<TokenWindow>();
+        builder.Services.AddSingleton<TokenWindowViewModel>();
 
         // Plugins
         var pluginLoader = new PluginLoader(
