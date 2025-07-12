@@ -24,6 +24,5 @@
     <File Path="LICENSE" />
     <File Path="README.md" />
     <File Path="PoorMansDeck.sln.DotSettings" />
-    <File Path="Settings.XamlStyler" />
   </Folder>
 </Solution>
