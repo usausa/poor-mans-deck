@@ -38,10 +38,11 @@
     "xmlns:codes",
     "xmlns:effects",
     "xmlns:fonts",
+    "xmlns:graphics",
     "xmlns:helpers",
     "xmlns:markup",
     "xmlns:models",
-    "xmlns:module",
+    "xmlns:views",
 
     "xmlns:*",
 
@@ -62,16 +63,20 @@
     "Class",
     "ClassId",
 
-    "Grid.Row, Grid.RowSpan, Grid.Column, Grid.ColumnSpan, Canvas.Left, Canvas.Top, Canvas.Right, Canvas.Bottom",
-
     "x:DataType",
     "s:BindingContextResolver.*",
     "BindingContext",
+
+    "Grid.Row, Grid.RowSpan, Grid.Column, Grid.ColumnSpan",
+    "Canvas.Left, Canvas.Top, Canvas.Right, Canvas.Bottom",
+    "AbsoluteLayout.LayoutBounds, AbsoluteLayout.LayoutFlags",
 
     "Style",
     "StyleClass",
 
     "shell:ShellProperty.Title",
+    "shell:ShellProperty.HeaderVisible",
+    "shell:ShellProperty.FunctionVisible",
     "shell:ShellProperty.Function1Text",
     "shell:ShellProperty.Function2Text",
     "shell:ShellProperty.Function3Text",
@@ -104,21 +109,14 @@
     "ios:*",
     "mcs:*",
     "behaviors:*",
-    "si:*",
-    "six:*",
-    "input:*",
+    "s:*",
     "effects:*",
 
     "FontFamily, FontSize, FontAttributes",
-    "TextColor, BackgroundColor",
     "Text",
+    "TextColor, BackgroundColor",
 
     "Keyboard",
-
-    "GaugeColor",
-    "ValueColor",
-    "MaxSpeed",
-    "Speed",
 
     "*",
     "*:*",
@@ -136,7 +134,7 @@
   "SpaceBeforeClosingSlash": true,
   "RootElementLineBreakRule": 0,
   "ReorderVSM": 1,
-  "ReorderGridChildren": true,
+  "ReorderGridChildren": false,
   "ReorderCanvasChildren": false,
   "ReorderSetters": 0,
   "FormatMarkupExtension": true,
