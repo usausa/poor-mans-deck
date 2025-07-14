@@ -2,24 +2,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:si="clr-namespace:Smart.Windows.Interactivity;assembly=Smart.Windows.Behaviors"
-        xmlns:sr="clr-namespace:Smart.Windows.Resolver;assembly=Smart.Windows"
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:views="clr-namespace:PoorMansDeck.Server.Views"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:s="http://smart/windows"
+        xmlns:views="clr-namespace:PoorMansDeck.Server.Views"
         mc:Ignorable="d"
         x:Class="PoorMansDeck.Server.Views.TokenWindow"
+        s:DataContextResolver.Type="{x:Type views:TokenWindowViewModel}"
+        d:DataContext="{d:DesignInstance Type={x:Type views:TokenWindowViewModel}}"
+        Width="480"
+        Height="480"
         Title="Token"
-        sr:DataContextResolver.Type="{x:Type views:TokenWindowViewModel}"
-        Width="480" Height="480"
-        ResizeMode="CanMinimize"
-        d:DataContext="{d:DesignInstance Type={x:Type views:TokenWindowViewModel}}">
+        ResizeMode="CanMinimize">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
-            <si:WindowCloseToHideAction />
+            <s:WindowCloseToHideAction />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <i:Interaction.Behaviors>
-        <si:DragMoveBehavior />
+        <s:DragMoveBehavior />
     </i:Interaction.Behaviors>
 
     <Grid>

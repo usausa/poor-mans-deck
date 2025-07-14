@@ -11,7 +11,7 @@ using Microsoft.Win32;
 using PoorMansDeck.Server.Security;
 using PoorMansDeck.Server.Views;
 
-using Smart.Windows.Resolver;
+using Smart.Mvvm.Resolver;
 
 #pragma warning disable CA1001
 public sealed partial class App

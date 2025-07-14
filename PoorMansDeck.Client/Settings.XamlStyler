@@ -42,7 +42,7 @@
     "xmlns:helpers",
     "xmlns:markup",
     "xmlns:models",
-    "xmlns:views",
+    "xmlns:module",
 
     "xmlns:*",
 
@@ -58,7 +58,7 @@
     "s:Behavior.Key",
     "s:ValidationProperty.*",
 
-    "BasedOn, TargetType",
+    "TargetType, BasedOn",
 
     "Class",
     "ClassId",
