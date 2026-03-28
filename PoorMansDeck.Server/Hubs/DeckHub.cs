@@ -14,6 +14,7 @@ public class DeckHub : Hub
         return Clients.All.SendAsync("ReceiveMessage", new ChatMessage { Text = text, Timestamp = DateTime.Now });
     }
 
+#pragma warning disable IDE0060
 #pragma warning disable CA1822
     public Task UpdateStatus()
     {

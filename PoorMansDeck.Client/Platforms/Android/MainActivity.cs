@@ -1,4 +1,5 @@
-// ReSharper disable CheckNamespace
+#pragma warning disable IDE0130
+// // ReSharper disable CheckNamespace
 namespace PoorMansDeck.Client;
 
 using Android.App;

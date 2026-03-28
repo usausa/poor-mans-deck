@@ -37,7 +37,7 @@ public class DeckModel
 
     public int Columns { get; set; }
 
-    public ObservableCollection<ButtonModel> Buttons { get; } = new();
+    public ObservableCollection<ButtonModel> Buttons { get; } = [];
 }
 
 public class ButtonDataTemplateSelector : DataTemplateSelector
