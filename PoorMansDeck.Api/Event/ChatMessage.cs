@@ -1,3 +1,4 @@
+#pragma warning disable CA1716
 namespace PoorMansDeck.Event;
 
 public class ChatMessage
@@ -6,3 +7,4 @@ public class ChatMessage
 
     public DateTime Timestamp { get; set; }
 }
+#pragma warning restore CA1716

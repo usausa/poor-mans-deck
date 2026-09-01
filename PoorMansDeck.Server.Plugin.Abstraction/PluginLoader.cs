@@ -18,7 +18,7 @@ public sealed class PluginLoader
         foreach (var module in modules)
         {
             var assembly = Assembly.LoadFrom(module);
-            var pluginTypes = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t) && t is { IsInterface: false, IsAbstract: false });
+            var pluginTypes = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t) && (t is { IsInterface: false, IsAbstract: false }));
             foreach (var pluginType in pluginTypes)
             {
                 var plugin = (IPlugin)Activator.CreateInstance(pluginType)!;

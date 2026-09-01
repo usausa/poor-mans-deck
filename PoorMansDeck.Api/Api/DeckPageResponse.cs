@@ -1,5 +1,6 @@
 namespace PoorMansDeck.Api;
 
+#pragma warning disable CA1034
 public sealed class DeckPageResponse
 {
     public sealed class CommandEntry
@@ -14,3 +15,4 @@ public sealed class DeckPageResponse
 
     // TODO
 }
+#pragma warning restore CA1034
