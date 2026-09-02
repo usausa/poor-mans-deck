@@ -1,5 +1,3 @@
 namespace PoorMansDeck.Server.Views;
 
-public sealed class MainWindowViewModel
-{
-}
+public sealed class MainWindowViewModel;
