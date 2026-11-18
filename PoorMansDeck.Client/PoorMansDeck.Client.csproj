@@ -6,7 +6,6 @@
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
 		<RootNamespace>PoorMansDeck.Client</RootNamespace>
-    <CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
 
 		<!-- Display name -->
 		<ApplicationTitle>PoorMansDeck.Client</ApplicationTitle>
